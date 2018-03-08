@@ -55,6 +55,7 @@
 			</plugin>
 		</plugins>
 	</build>
+	<distributionManagement>
 <repository>
     <id>apache.snapshots</id>
     <name>Apache Development Snapshot Repository</name>
@@ -66,5 +67,5 @@
         <enabled>true</enabled>
     </snapshots>
 </repository>
-
+</distributionManagement>
 </project>
