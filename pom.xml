@@ -52,16 +52,15 @@
 		</plugins>
 	</build>
 	<distributionManagement>
-<repository>
-    <id>apache.snapshots</id>
-    <name>Apache Development Snapshot Repository</name>
-    <url>http://localhost:8081/repository/maven-snapshots/</url>
-    <releases>
-        <enabled>false</enabled>
-    </releases>
-    <snapshots>
-        <enabled>true</enabled>
-    </snapshots>
-</repository>
+		<repository>
+		    <id>nexus.snapshots</id>
+		    <name>Nexus Snapshot Repository</name>
+		    <url>http://localhost:8081/repository/maven-snapshots/</url>
+		</repository>
+		<repository>
+		    <id>nexus.releases</id>
+		    <name>Nexus Releases Repository</name>
+		    <url>http://localhost:8081/repository/maven-releases/</url>
+		</repository>
 </distributionManagement>
 </project>
