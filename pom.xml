@@ -50,6 +50,16 @@
 			</plugin>
 		</plugins>
 	</build>
-
+<repository>
+    <id>apache.snapshots</id>
+    <name>Apache Development Snapshot Repository</name>
+    <url>http://localhost:8081/repository/maven-snapshots/</url>
+    <releases>
+        <enabled>false</enabled>
+    </releases>
+    <snapshots>
+        <enabled>true</enabled>
+    </snapshots>
+</repository>
 
 </project>
