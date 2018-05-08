@@ -15,6 +15,15 @@ public class DemoApplication {
     String home() {
         return "Hello World!";
     }
+	
+	 @RequestMapping("/error")
+    String home() {
+	    int i=0;
+	    if(i==0){
+		    throw new Exception();
+	    }
+        return "Hello World!";
+    }
     
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
