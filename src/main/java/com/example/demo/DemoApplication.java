@@ -17,11 +17,17 @@ public class DemoApplication {
     }
 	
 	 @RequestMapping("/error")
-    String home() {
+    String home1() {
 	    int i=0;
+	    
+	    try{
+		    
 	    if(i==0){
 		    throw new Exception();
 	    }
+	    } catch(Exception e){
+			    e.printStackTrace();
+		    }
         return "Hello World!";
     }
     
