@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 public class DemoApplication {
 
-    @RequestMapping("/")
+    @RequestMapping("/success")
     String home() {
         return "Hello World!";
     }
