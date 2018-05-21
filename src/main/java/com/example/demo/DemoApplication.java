@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,36 +15,38 @@ import org.springframework.http.HttpStatus;
 @SpringBootApplication
 public class DemoApplication {
 
-    @RequestMapping(value="/success", method = RequestMethod.GET)
-    public ResponseEntity<String>   testSuccess() {
-		System.out.println("testSuccess ***************:");
-       return new ResponseEntity<>("Hello World!", HttpStatus.OK);
+    Logger logger = Logger.getLogger(DemoApplication.class);
+
+    @RequestMapping(value = "/success", method = RequestMethod.GET)
+    public ResponseEntity<String> testSuccess() {
+        System.out.println("testSuccess ***************:");
+        return new ResponseEntity<>("Hello World!", HttpStatus.OK);
     }
 
-	 @RequestMapping(value="/hi", method = RequestMethod.GET)
-    public ResponseEntity<String>  testError() throws Exception {
-	    int i=0;
-System.out.println("testError *********************:");
-	    Thread.sleep(1200);
-	    try{
+    @RequestMapping(value = "/errorcall", method = RequestMethod.GET)
+    public ResponseEntity<String> testError() throws Exception {
+        int i = 0;
+        logger.error("1st testError  Method *********************:");
+        Thread.sleep(1200);
+        try {
 
-	    if(i==0){
-			System.out.println("22222222222222222222222:");
-		    Thread.sleep(1200);
-		    throw new Exception("exception raised");
-	    }
-	    } catch(Exception e){
-		    Thread.sleep(1200);
-			System.out.println("Exception *****************:");
-		    Thread.sleep(1200);
-			    e.printStackTrace();
-		    }
+            if (i == 0) {
+                logger.error("2nd calling in try method ");
+                Thread.sleep(1200);
+                throw new Exception("4th exception raised");
+            }
+        } catch (Exception e) {
+            Thread.sleep(1200);
+            logger.error("3rd Exception *****************:");
+            Thread.sleep(1200);
+            e.printStackTrace();
+        }
 
-		     return new ResponseEntity<>("Hello World! Error", HttpStatus.OK);
+        return new ResponseEntity<>("Hello World! Error", HttpStatus.OK);
 
     }
 
-	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
 }
