@@ -21,17 +21,21 @@ public class DemoApplication {
     }
 
 	 @RequestMapping(value="/hi", method = RequestMethod.GET)
-    public ResponseEntity<String>  testError() {
+    public ResponseEntity<String>  testError() throws Exception {
 	    int i=0;
 System.out.println("testError *********************:");
+	    Thread.sleep(1200);
 	    try{
 
 	    if(i==0){
 			System.out.println("22222222222222222222222:");
+		    Thread.sleep(1200);
 		    throw new Exception("exception raised");
 	    }
 	    } catch(Exception e){
+		    Thread.sleep(1200);
 			System.out.println("Exception *****************:");
+		    Thread.sleep(1200);
 			    e.printStackTrace();
 		    }
 
