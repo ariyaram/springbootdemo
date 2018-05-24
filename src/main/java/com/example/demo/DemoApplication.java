@@ -27,18 +27,18 @@ public class DemoApplication {
     public ResponseEntity<String> testError() throws Exception {
         int i = 0;
         logger.error("1st testError  Method *********************:");
-        Thread.sleep(1200);
+        Thread.sleep(3000);
         try {
 
             if (i == 0) {
                 logger.error("2nd calling in try method ");
-                Thread.sleep(1200);
+                Thread.sleep(3000);
                 throw new Exception("4th exception raised");
             }
         } catch (Exception e) {
-            Thread.sleep(1200);
+            Thread.sleep(3000);
             logger.error("3rd Exception *****************:");
-            Thread.sleep(1200);
+            Thread.sleep(3000);
             e.printStackTrace();
         }
 
